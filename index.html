@@ -78,7 +78,6 @@ p{margin:0}
 .hero-actions{margin-top:38px;display:flex;flex-wrap:wrap;gap:14px 22px;align-items:center}
 .hero-foto{position:relative;height:42svh;min-height:240px;overflow:hidden}
 .hero-foto img{width:100%;height:100%;object-fit:cover;object-position:center 8%}
-.ring-hero{position:absolute;right:-10vw;top:2vh;width:min(38vw,220px);opacity:.28;z-index:1}
 @media(min-width:900px){
   .hero{grid-template-rows:1fr;grid-template-columns:1.02fr .98fr;align-items:stretch}
   .hero-copy{display:flex;flex-direction:column;justify-content:center;padding-block:clamp(90px,12vh,150px) clamp(40px,6vh,80px);
@@ -86,8 +85,7 @@ p{margin:0}
   .hero-copy .wrap{padding:0;max-width:none}
   .hero-foto{height:auto;min-height:100svh}
   .hero-foto img{object-position:center 26%}
-  .ring-hero{right:auto;left:calc(50% - min(21vw,150px));top:auto;bottom:6vh;opacity:.5}
-}
+  }
 
 /* ---------- BOTÕES ---------- */
 .btn{display:inline-flex;align-items:center;gap:.6em;text-decoration:none;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;
@@ -247,9 +245,6 @@ footer a:hover{color:var(--caramelo)}
 
 <header class="hero" id="topo">
   <div class="hero-copy">
-    <svg class="ring-hero" viewBox="0 0 100 100" aria-hidden="true" data-reveal data-anim="ring">
-      <g class="ring"><circle cx="50" cy="50" r="35"/><circle class="dot" cx="50" cy="50" r="4"/></g>
-    </svg>
     <div class="wrap">
       <p class="rotulo hero-eyebrow" data-reveal>Mentoria de carreira · Consultoria para negócios</p>
       <h1 data-reveal>Competência te trouxe até aqui.<br><em class="glow">Estratégia</em> te leva adiante.</h1>
