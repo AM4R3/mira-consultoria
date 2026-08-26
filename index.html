@@ -3,16 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>MIRA — Mentoria de Carreira e Consultoria para Negócios</title>
-<meta name="description" content="Mentoria e consultoria por quem viveu 15 anos de corporativo: relacionamento estratégico, posicionamento e comunicação assertiva. Sem fórmula mágica, com método.">
+<title>MIRA · Mentoria de carreira e consultoria para negócios</title>
+<meta name="description" content="Mentoria e consultoria por quem passou 15 anos dentro do corporativo. Relacionamento estratégico, posicionamento e comunicação assertiva.">
 <link rel="canonical" href="https://mira-consultoria.vercel.app/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:title" content="MIRA — Mentoria de Carreira e Consultoria para Negócios">
+<meta property="og:title" content="MIRA · Mentoria de carreira e consultoria para negócios">
 <meta property="og:description" content="Competência te trouxe até aqui. Estratégia te leva adiante.">
 <meta property="og:url" content="https://mira-consultoria.vercel.app/">
-<!-- SUBSTITUIR: og-image real (foto das duas sócias, 1200x630) -->
-<meta property="og:image" content="https://mira-consultoria.vercel.app/og-image.jpg">
+<meta property="og:image" content="https://mira-consultoria.vercel.app/img/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,27 +64,34 @@ p{margin:0}
 /* ---------- NAV ---------- */
 .nav{position:sticky;top:0;z-index:60;background:rgba(245,239,231,.86);backdrop-filter:blur(10px);border-bottom:1px solid rgba(42,38,34,.08)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
-.logo{font-family:Fraunces,serif;font-size:1.15rem;letter-spacing:.34em;text-decoration:none;padding-left:2px}
+.logo{display:flex;align-items:center;text-decoration:none;padding-left:2px}
+.logo img{height:19px;width:auto}
 .nav-cta{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;text-decoration:none;border-bottom:1px solid var(--caramelo);padding-bottom:3px;transition:color .3s ease}
 .nav-cta:hover{color:var(--caramelo)}
 
 /* ---------- HERO ---------- */
-.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding-bottom:clamp(48px,9vh,110px);padding-top:80px;overflow:hidden}
-.hero-bg{position:absolute;inset:0;
-  /* SUBSTITUIR: foto profissional das duas sócias (post "15 anos"), mín 1400px */
-  background:linear-gradient(160deg,#EFE3D3,#D9C2A8 60%,#A8875E);
-  background-size:cover;background-position:center 28%}
-.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(245,239,231,.94) 4%,rgba(245,239,231,.72) 42%,rgba(245,239,231,.18) 100%)}
-.hero .wrap{position:relative;z-index:2;width:100%}
+.hero{position:relative;min-height:100svh;display:grid;grid-template-rows:1fr auto;overflow:hidden}
+.hero-copy{position:relative;z-index:2;align-self:end;padding-block:clamp(40px,7vh,90px) clamp(28px,4vh,48px)}
 .hero-eyebrow{opacity:.72;margin-bottom:26px}
 .hero h1{font-size:var(--fs-hero);max-width:14ch}
 .hero-sub{margin-top:26px;max-width:44ch;font-size:clamp(1rem,1.6vw,1.15rem);opacity:.82}
 .hero-actions{margin-top:38px;display:flex;flex-wrap:wrap;gap:14px 22px;align-items:center}
-.ring-hero{position:absolute;right:-4vw;top:15vh;width:min(46vw,340px);opacity:.45;z-index:1}
+.hero-foto{position:relative;height:42svh;min-height:240px;overflow:hidden}
+.hero-foto img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
+.ring-hero{position:absolute;right:-10vw;top:2vh;width:min(38vw,220px);opacity:.28;z-index:1}
+@media(min-width:900px){
+  .hero{grid-template-rows:1fr;grid-template-columns:1.02fr .98fr;align-items:stretch}
+  .hero-copy{display:flex;flex-direction:column;justify-content:center;padding-block:clamp(90px,12vh,150px) clamp(40px,6vh,80px);
+    max-width:calc(var(--max) / 2 + var(--pad));margin-left:auto;width:100%;padding-inline:var(--pad) clamp(28px,4vw,64px)}
+  .hero-copy .wrap{padding:0;max-width:none}
+  .hero-foto{height:auto;min-height:100svh}
+  .hero-foto img{object-position:center 26%}
+  .ring-hero{right:auto;left:calc(50% - min(21vw,150px));top:auto;bottom:6vh;opacity:.5}
+}
 
 /* ---------- BOTÕES ---------- */
 .btn{display:inline-flex;align-items:center;gap:.6em;text-decoration:none;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;
-  padding:16px 30px;border-radius:999px;background:var(--grafite);color:var(--creme);border:1px solid var(--grafite);
+  padding:16px 30px;border-radius:0;background:var(--grafite);color:var(--creme);border:1px solid var(--grafite);
   transition:transform .3s cubic-bezier(.2,.7,.3,1),filter .3s ease,background .3s ease,color .3s ease}
 .btn:hover{transform:translateY(-2px);filter:brightness(1.18)}
 .btn--breathe{animation:breathe 3.5s ease-in-out 1.4s infinite}
@@ -110,6 +116,10 @@ section{padding-block:clamp(72px,11vw,150px)}
 .problema-lines p{opacity:.82}
 .problema-lines .strong{font-weight:500;opacity:1}
 @media(min-width:900px){.problema-grid{grid-template-columns:1.05fr .95fr}}
+
+/* FAIXA DE IMAGEM */
+.faixa{padding:0;line-height:0}
+.faixa img{width:100%;height:clamp(220px,42vw,420px);object-fit:cover;object-position:center 38%}
 
 /* PILARES */
 .pilares-head{display:grid;gap:20px;margin-bottom:clamp(48px,7vw,86px)}
@@ -138,12 +148,13 @@ section{padding-block:clamp(72px,11vw,150px)}
   .frente--b{width:90%;margin-left:auto}
 }
 
-/* QUEM SOMOS — quebra de grade */
+/* QUEM SOMOS (quebra de grade) */
 .quem{display:grid;gap:clamp(34px,5vw,64px);align-items:start;grid-template-columns:1fr}
-.quem-foto{aspect-ratio:4/5;
-  /* SUBSTITUIR: retrato editorial das duas sócias */
-  background:linear-gradient(150deg,#EFE3D3,#C7A886 70%,#8E6C46);
-  border:1px solid rgba(42,38,34,.1)}
+.quem-fotos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.quem-fotos figure{margin:0}
+.quem-fotos img{width:100%;aspect-ratio:4/5;object-fit:cover;background:#EFE3D3}
+.quem-fotos img.f2{object-position:center 18%}
+.quem-fotos figcaption{margin-top:10px;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;opacity:.6}
 .socias{display:grid;gap:34px}
 .socia h3{font-size:1.5rem}
 .socia .rotulo{opacity:.6;margin-top:6px;display:block}
@@ -153,7 +164,7 @@ section{padding-block:clamp(72px,11vw,150px)}
 .cheer span{opacity:.75;display:block;margin-top:8px}
 @media(min-width:960px){
   .quem{grid-template-columns:.85fr 1.15fr}
-  .quem-foto{margin-left:calc((var(--pad) + 3vw) * -1)}
+  .quem-fotos{margin-left:calc((var(--pad) + 3vw) * -1)}
 }
 
 /* PROVA */
@@ -173,6 +184,7 @@ section{padding-block:clamp(72px,11vw,150px)}
 /* FOOTER */
 footer{background:var(--grafite);color:var(--creme);padding-block:38px 110px;border-top:1px solid rgba(245,239,231,.12)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:14px 26px;justify-content:space-between;align-items:center;font-size:.78rem;opacity:.72}
+.foot-logo{height:34px;width:auto;opacity:.9}
 footer a{text-decoration:none;transition:color .3s ease}
 footer a:hover{color:var(--caramelo)}
 @media(min-width:760px){footer{padding-bottom:38px}}
@@ -191,7 +203,7 @@ footer a:hover{color:var(--caramelo)}
 @keyframes drawRing{to{stroke-dashoffset:0}}
 @keyframes drawLine{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @keyframes quoteIn{from{opacity:0;transform:scale(1.2)}to{opacity:1;transform:scale(1)}}
-@keyframes breathe{0%,100%{box-shadow:0 0 0 0 rgba(168,123,79,0)}50%{box-shadow:0 0 0 10px rgba(168,123,79,.16)}}
+@keyframes breathe{0%,100%{box-shadow:0 0 0 0 rgba(168,123,79,0)}50%{box-shadow:0 0 0 6px rgba(168,123,79,.10)}}
 @keyframes italicGlow{from{color:inherit}to{color:var(--caramelo)}}
 @keyframes slideFromLeft{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:none}}
 @keyframes slideFromRight{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
@@ -224,26 +236,32 @@ footer a:hover{color:var(--caramelo)}
 
 <nav class="nav">
   <div class="wrap">
-    <a class="logo" href="#topo">MIRA</a>
+    <a class="logo" href="#topo" aria-label="MIRA Consultoria e Mentoria, ir para o início">
+      <img src="img/mark-dark.png" width="550" height="175" alt="MIRA">
+    </a>
     
     <a class="nav-cta" href="https://wa.me/5511978826415?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20MIRA%20e%20quero%20conversar" target="_blank" rel="noopener">Falar com a gente</a>
   </div>
 </nav>
 
 <header class="hero" id="topo">
-  <div class="hero-bg" role="img" aria-label="Retrato das duas sócias fundadoras da MIRA"></div>
-  <svg class="ring-hero" viewBox="0 0 100 100" aria-hidden="true" data-reveal data-anim="ring">
-    <g class="ring"><circle cx="50" cy="50" r="35"/><circle class="dot" cx="50" cy="50" r="4"/></g>
-  </svg>
-  <div class="wrap">
-    <p class="rotulo hero-eyebrow" data-reveal>Mentoria de carreira · Consultoria para negócios</p>
-    <h1 data-reveal>Competência te trouxe até aqui.<br><em class="glow">Estratégia</em> te leva adiante.</h1>
-    <p class="hero-sub" data-reveal>Mentoria e consultoria por quem viveu 15 anos de corporativo — sem fórmula mágica, com método.</p>
-    <div class="hero-actions" data-reveal>
-      
-      <a class="btn btn--breathe" href="https://wa.me/5511978826415?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20MIRA%20e%20quero%20conversar" target="_blank" rel="noopener">Quero conversar</a>
-      <a class="link-draw" href="#frentes">ver as duas frentes ↓</a>
+  <div class="hero-copy">
+    <svg class="ring-hero" viewBox="0 0 100 100" aria-hidden="true" data-reveal data-anim="ring">
+      <g class="ring"><circle cx="50" cy="50" r="35"/><circle class="dot" cx="50" cy="50" r="4"/></g>
+    </svg>
+    <div class="wrap">
+      <p class="rotulo hero-eyebrow" data-reveal>Mentoria de carreira · Consultoria para negócios</p>
+      <h1 data-reveal>Competência te trouxe até aqui.<br><em class="glow">Estratégia</em> te leva adiante.</h1>
+      <p class="hero-sub" data-reveal>Mentoria e consultoria por quem passou 15 anos dentro do corporativo. Sem fórmula mágica.</p>
+      <div class="hero-actions" data-reveal>
+        <a class="btn" href="https://wa.me/5511978826415?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20MIRA%20e%20quero%20conversar" target="_blank" rel="noopener">Quero conversar</a>
+        <a class="link-draw" href="#frentes">ver as duas frentes ↓</a>
+      </div>
     </div>
+  </div>
+  <div class="hero-foto">
+    <img src="img/hero.jpg" width="1440" height="660" fetchpriority="high" decoding="async"
+         alt="As duas sócias fundadoras da MIRA sentadas lado a lado, conversando">
   </div>
 </header>
 
@@ -258,11 +276,15 @@ footer a:hover{color:var(--caramelo)}
     </div>
     <div class="problema-lines">
       <div class="rule" data-reveal data-anim="line"></div>
-      <p data-reveal>Técnica te leva até certo ponto. Ela abre a porta, garante a cadeira, sustenta a entrega.</p>
-      <p class="strong" data-reveal>Depois de um tempo, quase todo mundo na mesa já é competente — o que passa a te diferenciar é outra coisa.</p>
-      <p data-reveal>Ninguém ensina isso num curso técnico. A gente aprendeu dentro da estrutura, errando e corrigindo. É isso que a gente ensina aqui.</p>
+      <p data-reveal>Técnica abre a porta e garante a cadeira. Ela te leva até certo ponto.</p>
+      <p class="strong" data-reveal>Depois de um tempo, quase todo mundo na mesa já é competente. O que passa a te diferenciar é outra coisa.</p>
+      <p data-reveal>Ninguém ensina isso num curso técnico. A gente aprendeu na prática, dentro da estrutura. É o que a gente ensina aqui.</p>
     </div>
   </div>
+</section>
+
+<section class="faixa" aria-hidden="true">
+  <img src="img/cafe.jpg" width="1440" height="900" loading="lazy" decoding="async" alt="">
 </section>
 
 <!-- 4. OS 3 PILARES -->
@@ -299,18 +321,18 @@ footer a:hover{color:var(--caramelo)}
     <h2 class="sec-head" data-reveal style="margin-top:18px">Uma para a sua carreira. Outra para o seu <em>negócio</em>.</h2>
     <div class="frentes">
       <article class="frente frente--a" data-reveal data-anim="left">
-        <p class="rotulo rotulo-acento">Pra você — Mentoria de carreira</p>
+        <p class="rotulo rotulo-acento">Mentoria de carreira</p>
         <h3>Pra quem entrega bem e mesmo assim trava.</h3>
-        <p>Você é técnica, é reconhecida pela entrega — e ainda assim vê a promoção, o projeto e a visibilidade irem para outro lugar. A mentoria trabalha os três pilares dentro da sua realidade: relacionamento estratégico, posicionamento e comunicação assertiva.</p>
+        <p>Você entrega bem e é reconhecida por isso. Ainda assim, a promoção e os projetos bons vão parar em outro lugar. A mentoria trabalha os três pilares dentro da sua rotina, com o que está travando agora.</p>
         <!-- SUBSTITUIR: formato (individual ou grupo), nº de encontros, duração e investimento -->
         <p class="rotulo meta">Formato e investimento: sob consulta</p>
         
         <a class="link-draw" href="https://wa.me/5511978826415?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20mentoria%20de%20carreira%20da%20MIRA" target="_blank" rel="noopener">quero direcionar minha carreira →</a>
       </article>
       <article class="frente frente--b" data-reveal data-anim="right">
-        <p class="rotulo rotulo-acento">Pra sua empresa — Consultoria</p>
+        <p class="rotulo rotulo-acento">Consultoria para negócios</p>
         <h3>Pra quem construiu o negócio e agora precisa <em>estruturá-lo</em>.</h3>
-        <p>Operação que depende do dono, processo que só existe na cabeça de alguém, gestão feita no improviso. A consultoria organiza operação, processos e gestão para o negócio rodar sem depender de heroísmo.</p>
+        <p>A operação depende de você. O processo só existe na cabeça de alguém. A gestão vai no improviso. A consultoria organiza isso para o negócio rodar sem você no meio de tudo.</p>
         <!-- SUBSTITUIR: escopo real da consultoria (diagnóstico? projeto? etapas? prazo?) -->
         <p class="rotulo meta">Escopo e investimento: sob consulta</p>
         
@@ -323,7 +345,19 @@ footer a:hover{color:var(--caramelo)}
 <!-- 6. QUEM SOMOS -->
 <section class="sec-nude" id="quem">
   <div class="wrap quem">
-    <div class="quem-foto" role="img" aria-label="Retrato das fundadoras da MIRA" data-reveal data-anim="left"></div>
+    <div class="quem-fotos" data-reveal data-anim="left">
+      <!-- SUBSTITUIR legendas: nome de cada sócia -->
+      <figure>
+        <img src="img/p-socia-1.jpg" width="1080" height="1230" loading="lazy" decoding="async"
+             alt="Retrato de uma das sócias fundadoras da MIRA, sentada com um tablet">
+        <figcaption>Sócia fundadora</figcaption>
+      </figure>
+      <figure>
+        <img class="f2" src="img/p-socia-2.jpg" width="1080" height="848" loading="lazy" decoding="async"
+             alt="Retrato da outra sócia fundadora da MIRA, sentada em uma poltrona">
+        <figcaption>Sócia fundadora</figcaption>
+      </figure>
+    </div>
     <div>
       <h2 class="sec-head" data-reveal>Duas trajetórias, uma <em>mira</em>.</h2>
       <div class="rule" style="margin-top:26px" data-reveal data-anim="line"></div>
@@ -342,7 +376,7 @@ footer a:hover{color:var(--caramelo)}
       </div>
       <div class="cheer" data-reveal>
         <strong>“Eu não sou sua cheerleader.”</strong>
-        <span>Mentoria aqui não é torcida — é direção.</span>
+        <span>Mentoria aqui não é torcida. É direção.</span>
       </div>
     </div>
   </div>
@@ -355,15 +389,15 @@ footer a:hover{color:var(--caramelo)}
     <div class="provas">
       <!-- SUBSTITUIR: depoimentos reais e autorizados (nome, cargo, empresa) -->
       <article class="prova" data-reveal>
-        <p>Depoimento real de mentorada — em uma ou duas frases, na voz dela.</p>
+        <p>Depoimento real de mentorada, em uma ou duas frases, na voz dela.</p>
         <span class="rotulo">Nome · Cargo, Empresa</span>
       </article>
       <article class="prova" data-reveal>
-        <p>Depoimento real de mentorada — resultado concreto, sem superlativo.</p>
+        <p>Depoimento real de mentorada, com resultado concreto e sem superlativo.</p>
         <span class="rotulo">Nome · Cargo, Empresa</span>
       </article>
       <article class="prova" data-reveal>
-        <p>Depoimento real de cliente de consultoria — o que mudou na operação.</p>
+        <p>Depoimento real de cliente de consultoria, contando o que mudou na operação.</p>
         <span class="rotulo">Nome · Empresa</span>
       </article>
     </div>
@@ -386,7 +420,7 @@ footer a:hover{color:var(--caramelo)}
 
 <footer>
   <div class="wrap">
-    <span>MIRA Consultoria e Mentoria</span>
+    <img class="foot-logo" src="img/logo-light.png" width="560" height="250" loading="lazy" alt="MIRA Consultoria e Mentoria">
     <a href="https://instagram.com/_miraconsultoria_" target="_blank" rel="noopener">@_miraconsultoria_</a>
     <!-- VALIDAR: crédito -->
     <span>site por Baruc Amare</span>
